@@ -1,0 +1,15 @@
+scalar Date
+scalar DateTime
+
+type Post {
+  id: ID!
+  title: String
+  content: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PostInput {
+  title: String
+  content: String
+}

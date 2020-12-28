@@ -1,0 +1,31 @@
+# import User from "user.graphql"
+# import Notification from "notification.graphql"
+# import Post from "post.graphql"
+
+
+
+type Query {
+  users: [User!]!
+  user(id: ID!): User
+  posts: [Post!]!
+  notifications: [Notification!]!
+}
+
+type Mutation {
+  signInEmail(email: String! password: String!): AuthPayload!
+  signInGoogle(socialUser: SocialUserInput!): AuthPayload!
+  signInFacebook(socialUser: SocialUserInput!): AuthPayload!
+  signInApple(socialUser: SocialUserInput!): AuthPayload!
+  signUp(user: UserInput!): AuthPayload!
+  addNotificationToken(notification: NotificationInput!): Notification
+  updateProfile(user: UserInput!): User
+}
+
+type Subscription {
+  userSignedIn: User
+  userUpdated: User
+}
+
+schema {
+  query: Query
+}
